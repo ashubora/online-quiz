@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="quiz-container">
+        <h1>💡 The Ultimate Knowledge Test</h1>
+        
+        <div class="quiz-info">
+            <div id="progress">Question <span id="current-q">1</span> of <span id="total-q">10</span></div>
+            <div id="timer">Time: <span id="time-left">60</span>s</div>
+        </div>
+        
+        <div id="quiz-content">
+            <h2 id="question-text"></h2>
+
+            <div id="choices-container" class="choices-grid">
+                </div>
+            
+            <button id="next-btn" disabled>Next Question &rarr;</button>
+        </div>
+
+        <div id="result-screen" class="hidden">
+            <h2>Quiz Complete! 🎉</h2>
+            <p>You answered <span id="score-display"></span> out of <span id="final-total"></span> questions correctly.</p>
+            <p id="feedback-message"></p>
+            <button id="restart-btn">Restart Quiz</button>
+        </div>
+        
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
