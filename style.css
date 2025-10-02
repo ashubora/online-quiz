@@ -1,0 +1,173 @@
+/* --- Base Styles --- */
+:root {
+    --primary-color: #007bff; /* Blue */
+    --secondary-color: #28a745; /* Green */
+    --danger-color: #dc3545; /* Red */
+    --bg-color: #f8f9fa;
+    --card-bg: #fff;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* --- Quiz Container --- */
+.quiz-container {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
+}
+
+h1 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+}
+
+/* --- Quiz Info (Progress/Timer) --- */
+.quiz-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+    font-weight: bold;
+    color: #6c757d;
+}
+
+#timer {
+    color: var(--danger-color);
+}
+
+/* --- Question & Choices --- */
+#question-text {
+    font-size: 1.4em;
+    margin-bottom: 25px;
+    color: var(--text-color);
+}
+
+.choices-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.choice-btn {
+    padding: 15px;
+    border: 2px solid var(--primary-color);
+    background-color: var(--card-bg);
+    color: var(--primary-color);
+    text-align: left;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.2s, color 0.2s, transform 0.1s;
+}
+
+.choice-btn:hover:not(:disabled) {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.choice-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Feedback Styles (Applied via JS) */
+.choice-btn.correct {
+    background-color: var(--secondary-color) !important;
+    color: white !important;
+    border-color: var(--secondary-color) !important;
+}
+
+.choice-btn.incorrect {
+    background-color: var(--danger-color) !important;
+    color: white !important;
+    border-color: var(--danger-color) !important;
+}
+
+/* --- Next Button --- */
+#next-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1em;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#next-btn:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+#next-btn:disabled {
+    background-color: #a0c9f1;
+    cursor: not-allowed;
+}
+
+/* --- Result Screen --- */
+.hidden {
+    display: none;
+}
+
+#result-screen {
+    text-align: center;
+    padding: 20px;
+}
+
+#result-screen h2 {
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+#score-display {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: var(--primary-color);
+}
+
+#restart-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#restart-btn:hover {
+    background-color: #1e7e34;
+}
+
+/* --- Responsiveness --- */
+@media (min-width: 500px) {
+    /* Two columns for choices on wider screens */
+    .choices-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
